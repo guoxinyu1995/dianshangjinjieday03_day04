@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.youth.banner.Banner
+        android:id="@+id/banners"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="price"
+        android:textSize="20sp"
+        android:textColor="#f00"
+        android:layout_marginTop="10dp"
+        />
+</LinearLayout>

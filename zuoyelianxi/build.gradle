@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 28
 
@@ -23,6 +24,13 @@ android {
                 JPUSH_APPKEY : "25acdeff1fc8e504f6849c14", //JPush 上注册的包名对应的 Appkey.
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
+
+        //greendao
+        greendao {
+            schemaVersion 1//数据库版本号
+            daoPackage 'com.example.zuoyelianxi.greendao'//设置DaoMaster、DaoSession、Dao包名
+            targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+        }
     }
 
     buildTypes {
@@ -31,11 +39,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//指定jdk版本
+
+    //指定jdk版本
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     configurations.all {
         resolutionStrategy.eachDependency { DependencyResolveDetails details ->
             def requested = details.requested
@@ -72,6 +82,7 @@ dependencies {
     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
     //banner依赖
     implementation 'com.youth.banner:banner:1.4.9'
+
     implementation files('libs/umeng-common-1.5.4.jar')
     implementation files('libs/umeng-share-core-6.9.4.jar')
     implementation files('libs/umeng-share-QQ-simplify-6.9.4.jar')
@@ -81,4 +92,6 @@ dependencies {
 
     implementation 'cn.jiguang.sdk:jpush:3.1.6'  // 此处以JPush 3.1.6 版本为例。
     implementation 'cn.jiguang.sdk:jcore:1.2.5'  // 此处以JCore 1.2.5 版本为例。
+    //GreenDao
+    implementation 'org.greenrobot:greendao:3.2.2'
 }
